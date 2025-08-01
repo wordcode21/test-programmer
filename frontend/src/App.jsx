@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'r
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import Barang from './pages/Barang';
 import { getAuth } from './utils/auth';
 
 const ProtectedRoute = ({ children, roleCheck }) => {
@@ -33,6 +34,15 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route
+          path="/Barang/:kode_barang"
+          element={
+            <ProtectedRoute roleCheck="user">
+              <Barang />
+            </ProtectedRoute>
+          }
+        />
+        
         <Route path="*" element={<AutoRedirect />} />
       </Routes>
     </Router>
