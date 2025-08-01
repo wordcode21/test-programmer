@@ -111,22 +111,46 @@ router.post('/barang',verifyToken,checkRole({allowedRoles: ['admin']}),getKodeBa
 });
 
 router.patch('/barang',verifyToken,checkRole({allowedRoles: ['admin']}),getDate,(req,res)=>{
-  const {kode_barang,stock,harga} = req.body;
+  const {kode_barang,stock,harga,nama_barang} = req.body;
   if(!kode_barang){
     return res.status(400).json({status:400, message:"bad request"})
   }
   const stockInt = parseInt(stock);
   const hargaInt = parseInt(harga);
   const date = req.date;
-      if(stock && harga){
-        const query = "update barang set stock = ?, harga = ?, updated_at=? where kode_barang = ?";
-        db.query(query,[stockInt,hargaInt,date,kode_barang],(err,result)=>{
+      if(stock && harga && nama_barang){
+        const query = "update barang set stock = ?, harga = ?, updated_at=?,nama_barang=? where kode_barang = ?";
+        db.query(query,[stockInt,hargaInt,date,kode_barang,nama_barang],(err,result)=>{
             if(err){
                 return res.json({message: err});
             }
             return res.json({status: 200,data: "Stok Berhasil di update"});
         });
-    }else if(stock){
+    }else if(stock&&nama_barang){
+        const query = "update barang set stock = ?, updated_at=?,nama_barang=?  where kode_barang = ?";
+        db.query(query,[stockInt,date,kode_barang,nama_barang],(err,result)=>{
+            if(err){
+                return res.json({message: err});
+            }
+            return res.json({status: 200,data: "Stok Berhasil di update"});
+        });
+    }else if(harga && nama_barang ){
+        const query = "update barang set harga = ?,updated_at=?,nama_barang=?  where kode_barang = ?";
+        db.query(query,[hargaInt,date,kode_barang,nama_barang],(err,result)=>{
+            if(err){
+                return res.json({message: err});
+            }
+            return res.json({status: 200,data: "Stok Berhasil di update"});
+        });
+      }else if(stock&&harga){
+        const query = "update barang set stock = ?, updated_at=?, harga=?  where kode_barang = ?";
+        db.query(query,[stockInt,date,kode_barang,hargaInt],(err,result)=>{
+            if(err){
+                return res.json({message: err});
+            }
+            return res.json({status: 200,data: "Stok Berhasil di update"});
+        });
+      }else if(stock){
         const query = "update barang set stock = ?, updated_at=?  where kode_barang = ?";
         db.query(query,[stockInt,date,kode_barang],(err,result)=>{
             if(err){
@@ -134,9 +158,17 @@ router.patch('/barang',verifyToken,checkRole({allowedRoles: ['admin']}),getDate,
             }
             return res.json({status: 200,data: "Stok Berhasil di update"});
         });
-    }else if(harga){
-        const query = "update barang set harga = ?,updated_at=?  where kode_barang = ?";
-        db.query(query,[hargaInt,date,kode_barang],(err,result)=>{
+      }else if(harga){
+          const query = "update barang set harga = ?,updated_at=?  where kode_barang = ?";
+          db.query(query,[hargaInt,date,kode_barang],(err,result)=>{
+              if(err){
+                  return res.json({message: err});
+              }
+              return res.json({status: 200,data: "Stok Berhasil di update"});
+          });
+      }else if(nama_barang){
+        const query = "update barang set nama_barang = ?,updated_at=?  where kode_barang = ?";
+        db.query(query,[nama_barang,date,kode_barang],(err,result)=>{
             if(err){
                 return res.json({message: err});
             }

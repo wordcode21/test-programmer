@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { getAuth } from "../utils/auth";
 import "../styles/Barang.css";
 
-const Barang = () => {
+const BarangAdmin = () => {
   const { kode_barang } = useParams();
   const [barang, setBarang] = useState([]);
   const navigate = useNavigate();
@@ -14,6 +14,7 @@ const Barang = () => {
 
     fetch(`http://localhost:3000/api/barang/${kode_barang}`, {
       headers: {
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
     })
@@ -59,7 +60,10 @@ return (
             <p><strong>Stok:</strong> {barang.stock}</p>
             <p><strong>Harga:</strong> Rp {Number(barang.harga).toLocaleString()}</p>
             <button className="detail-back-btn" onClick={()=>{
-                navigate("/dashboard");
+                navigate(`/update-barang/${barang.kode_barang}`);
+            }}>Edit Item</button>
+            <button className="detail-back-btn" onClick={()=>{
+                navigate("/");
             }}>Kembali ke dashboard</button>
             </div>
         </div>
@@ -68,4 +72,4 @@ return (
 
 };
 
-export default Barang;
+export default BarangAdmin;

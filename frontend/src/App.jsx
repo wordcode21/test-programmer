@@ -4,6 +4,9 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import Barang from './pages/Barang';
+import BarangAdmin from './pages/BarangAdmin';
+import TambahBarang from './pages/TambahBarang';
+import UpdateBarang from './pages/UpdateBarang';
 import { getAuth } from './utils/auth';
 
 const ProtectedRoute = ({ children, roleCheck }) => {
@@ -35,14 +38,37 @@ const App = () => {
           }
         />
         <Route
-          path="/Barang/:kode_barang"
+          path="/barang/:kode_barang"
           element={
             <ProtectedRoute roleCheck="user">
               <Barang />
             </ProtectedRoute>
           }
         />
-        
+        <Route
+          path="/barang-admin/:kode_barang"
+          element={
+            <ProtectedRoute roleCheck="admin">
+              <BarangAdmin />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/update-barang/:kode_barang"
+          element={
+            <ProtectedRoute roleCheck="admin">
+              <UpdateBarang/>
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/tambah-barang"
+          element={
+            <ProtectedRoute roleCheck="admin">
+              <TambahBarang/>
+            </ProtectedRoute>
+          }
+        />
         <Route path="*" element={<AutoRedirect />} />
       </Routes>
     </Router>
