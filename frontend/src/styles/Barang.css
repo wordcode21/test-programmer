@@ -47,7 +47,6 @@
 .detail-back-btn {
   display: inline-block;
   padding: 10px 20px;
-  margin-top: 20px;
   background-color: #000000;
   color: #fff;
   border: none;
@@ -60,4 +59,37 @@
 .detail-back-btn:hover {
   background-color: #5a6268;
 }
+
+.update-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #45a040;;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.update-btn:hover {
+  background-color: #4CAF70;
+}
+.delete-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color:  #D32F2F;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #F44336;
+}
+
+
 

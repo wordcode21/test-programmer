@@ -97,6 +97,9 @@ function UpdateBarang() {
           />
           <button type="submit" className="update-button">Update</button>
         </form>
+        <button onClick={()=>{
+          navigate("/");
+        }} className="cancel-button">cancel</button>
       </div>
     </div>
   );

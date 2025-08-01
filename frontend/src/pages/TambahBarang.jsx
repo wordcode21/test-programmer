@@ -91,6 +91,9 @@ const TambahBarang = () => {
           />
           <button type="submit" className="login-button">Simpan</button>
         </form>
+        <button onClick={()=>{
+          navigate("/");
+        }} className="cancel-button">cancel</button>
       </div>
     </div>
   );
