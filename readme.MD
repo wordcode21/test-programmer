@@ -65,3 +65,27 @@ docker exec -i stockgudang-db mysqldump -u root -p  --no-tablespaces --databases
 yarn #jika baru clone
 yarn dev
 ```
+
+# Frontend
+
+## file structure 
+```
+frontend/
+├── src
+|   ├── pages
+|   ├── styles
+|   ├── utils
+|   ├── App.jsx
+|   ├── main.jsx
+|   ├── index.css
+|   ├── App.css
+|   ├── (folder dan file lain)
+└── (folder dan file lainnya)
+```
+
+## Cara menjalankan frontend
+untuk menjalakan frontend kalian harus masuk ke dirctory frontend dan menjalankan command:
+```
+yarn dev #menjalankan vite
+yarn build #untuk build react web appp
+```
