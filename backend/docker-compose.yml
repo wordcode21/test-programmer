@@ -1,0 +1,17 @@
+version: '3.8'
+#docker compose digunakan sebagai container database
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: stockgudang-db
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./backup.sql:/docker-entrypoint-initdb.d/backup.sql # dijalankan hanya saat volume kosong
+
+volumes:
+  db_data:
