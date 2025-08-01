@@ -1,4 +1,6 @@
 # Stock Gudang
+website stock gudang ini menggunakan teknologi docker compose sebagai kointainer untuk database mysql,
+express js untuk backend nya dan react js untuk frontend nya. pada bagian backend menggunkan bcrypt untuk mengubah password menjadi hash, dan jwt(json web token) untuk membuat token yang digunakan untuk login. Setelah itu juga terdapat multer yang digunakan untuk file upload. Untuk frontend menambahkan library react-router-dom untuk membuat route dari website.
 ## structure directory
 ```
 project-root/
@@ -86,6 +88,6 @@ frontend/
 ## Cara menjalankan frontend
 untuk menjalakan frontend kalian harus masuk ke dirctory frontend dan menjalankan command:
 ```
-yarn dev #menjalankan vite
-yarn build #untuk build react web appp
+yarn dev #jika kalian ingin menjalakan di development
+yarn build #untuk build react web app
 ```
