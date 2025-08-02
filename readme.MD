@@ -91,3 +91,16 @@ untuk menjalakan frontend kalian harus masuk ke dirctory frontend dan menjalanka
 yarn dev #jika kalian ingin menjalakan di development
 yarn build #untuk build react web app
 ```
+
+## kridensial
+### kridensial ini ada di database(di repo ada di backup.sql)
+admin:
+```
+email: aab@gmail.com
+password: test123
+````
+user:
+```
+email: aa@gmail.com
+password: test123
+```
