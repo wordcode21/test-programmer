@@ -103,7 +103,7 @@ const AdminDashboard = () => {
             <option value="stok-desc">Stok Terbesar</option>
           </select>
 
-          <button onClick={()=>{navigate("/tambah-barang")}}>Tambah</button>
+          <button onClick={()=>{navigate("/test-programmer/tambah-barang")}}>Tambah</button>
         </div>
 
         {filteredData.length === 0 ? (
@@ -113,7 +113,7 @@ const AdminDashboard = () => {
         ) : (
           <div className="card-list">
             {filteredData.map((item) => (
-              <div className="card" key={item.kode_barang} onClick={()=>navigate(`/barang-admin/${item.kode_barang}`)}>
+              <div className="card" key={item.kode_barang} onClick={()=>navigate(`/test-programmer/barang-admin/${item.kode_barang}`)}>
                 <img src={item.foto} alt={item.nama_barang} />
                 <div className="card-content">
                   <h3>{item.nama_barang}</h3>

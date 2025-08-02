@@ -120,7 +120,7 @@ router.patch('/barang',verifyToken,checkRole({allowedRoles: ['admin']}),getDate,
   const date = req.date;
       if(stock && harga && nama_barang){
         const query = "update barang set stock = ?, harga = ?, updated_at=?,nama_barang=? where kode_barang = ?";
-        db.query(query,[stockInt,hargaInt,date,kode_barang,nama_barang],(err,result)=>{
+        db.query(query,[stockInt,hargaInt,date,nama_barang,kode_barang],(err,result)=>{
             if(err){
                 return res.json({message: err});
             }
@@ -128,7 +128,7 @@ router.patch('/barang',verifyToken,checkRole({allowedRoles: ['admin']}),getDate,
         });
     }else if(stock&&nama_barang){
         const query = "update barang set stock = ?, updated_at=?,nama_barang=?  where kode_barang = ?";
-        db.query(query,[stockInt,date,kode_barang,nama_barang],(err,result)=>{
+        db.query(query,[stockInt,date,nama_barang,kode_barang],(err,result)=>{
             if(err){
                 return res.json({message: err});
             }
@@ -136,7 +136,7 @@ router.patch('/barang',verifyToken,checkRole({allowedRoles: ['admin']}),getDate,
         });
     }else if(harga && nama_barang ){
         const query = "update barang set harga = ?,updated_at=?,nama_barang=?  where kode_barang = ?";
-        db.query(query,[hargaInt,date,kode_barang,nama_barang],(err,result)=>{
+        db.query(query,[hargaInt,date,nama_barang,kode_barang],(err,result)=>{
             if(err){
                 return res.json({message: err});
             }
@@ -144,7 +144,7 @@ router.patch('/barang',verifyToken,checkRole({allowedRoles: ['admin']}),getDate,
         });
       }else if(stock&&harga){
         const query = "update barang set stock = ?, updated_at=?, harga=?  where kode_barang = ?";
-        db.query(query,[stockInt,date,kode_barang,hargaInt],(err,result)=>{
+        db.query(query,[stockInt,date,hargaInt,kode_barang],(err,result)=>{
             if(err){
                 return res.json({message: err});
             }

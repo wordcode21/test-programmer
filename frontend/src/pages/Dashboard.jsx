@@ -111,7 +111,7 @@ const Dashboard = () => {
         ) : (
           <div className="card-list">
             {filteredData.map((item) => (
-              <div className="card" key={item.kode_barang} onClick={()=>navigate(`/barang/${item.kode_barang}`)}>
+              <div className="card" key={item.kode_barang} onClick={()=>navigate(`/test-programmer/barang/${item.kode_barang}`)}>
                 <img src={item.foto} alt={item.nama_barang} />
                 <div className="card-content">
                   <h3>{item.nama_barang}</h3>

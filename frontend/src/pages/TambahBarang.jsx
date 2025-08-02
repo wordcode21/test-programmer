@@ -68,6 +68,7 @@ const TambahBarang = () => {
             placeholder="Nama Barang"
             value={nama_barang}
             onChange={(e) => setNamaBarang(e.target.value)}
+            required
           />
           <input
             type="number"
@@ -75,6 +76,7 @@ const TambahBarang = () => {
             placeholder="Stock"
             value={stock}
             onChange={(e) => setStock(e.target.value)}
+            required
           />
           <input
             type="number"
@@ -82,12 +84,14 @@ const TambahBarang = () => {
             placeholder="Harga"
             value={harga}
             onChange={(e) => setHarga(e.target.value)}
+            required
           />
           <input
             type="file"
             className="login-input"
             accept="image/*"
             onChange={(e) => setFoto(e.target.files[0])}
+            required
           />
           <button type="submit" className="login-button">Simpan</button>
         </form>

@@ -58,6 +58,7 @@ function UpdateBarang() {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         alert("✅ " + data.data); // alert berhasil
         navigate("/"); // redirect ke halaman utama
       })

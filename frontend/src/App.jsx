@@ -11,7 +11,7 @@ import { getAuth } from './utils/auth';
 
 const ProtectedRoute = ({ children, roleCheck }) => {
   const { token, role } = getAuth();
-  if (!token) return <Navigate to="/login" />;
+  if (!token) return <Navigate to="/test-programmer/login" />;
   if (roleCheck && role !== roleCheck) return <Navigate to="/" />;
   return children;
 };
@@ -20,9 +20,9 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/test-programmer/login" element={<Login />} />
         <Route
-          path="/dashboard"
+          path="/test-programmer/dashboard"
           element={
             <ProtectedRoute roleCheck="user">
               <Dashboard />
@@ -30,7 +30,7 @@ const App = () => {
           }
         />
         <Route
-          path="/admin"
+          path="/test-programmer/admin"
           element={
             <ProtectedRoute roleCheck="admin">
               <AdminDashboard />
@@ -38,7 +38,7 @@ const App = () => {
           }
         />
         <Route
-          path="/barang/:kode_barang"
+          path="/test-programmer/barang/:kode_barang"
           element={
             <ProtectedRoute roleCheck="user">
               <Barang />
@@ -46,7 +46,7 @@ const App = () => {
           }
         />
         <Route
-          path="/barang-admin/:kode_barang"
+          path="/test-programmer/barang-admin/:kode_barang"
           element={
             <ProtectedRoute roleCheck="admin">
               <BarangAdmin />
@@ -54,7 +54,7 @@ const App = () => {
           }
         />
         <Route
-          path="/update-barang/:kode_barang"
+          path="/test-programmer/update-barang/:kode_barang"
           element={
             <ProtectedRoute roleCheck="admin">
               <UpdateBarang/>
@@ -62,7 +62,7 @@ const App = () => {
           }
         />
         <Route
-          path="/tambah-barang"
+          path="/test-programmer/tambah-barang"
           element={
             <ProtectedRoute roleCheck="admin">
               <TambahBarang/>
@@ -81,11 +81,11 @@ const AutoRedirect = () => {
 
   useEffect(() => {
     if (!token) {
-      navigate('/login');
+      navigate('/test-programmer/login');
     } else if (role === 'admin') {
-      navigate('/admin');
+      navigate('/test-programmer/admin');
     } else {
-      navigate('/dashboard');
+      navigate('/test-programmer/dashboard');
     }
   }, [token, role, navigate]);
 

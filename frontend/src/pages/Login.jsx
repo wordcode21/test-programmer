@@ -14,9 +14,9 @@ const Login = () => {
     if (token && role) {
       // langsung arahkan ke dashboard yang sesuai
       if (role === 'admin') {
-        navigate('/admin');
+        navigate('/test-programmer/admin');
       } else {
-        navigate('/dashboard');
+        navigate('/test-programmer/dashboard');
       }
     }
   }, [navigate]);
@@ -36,9 +36,9 @@ const Login = () => {
       if (data.status === 200) {
         saveAuth(data.token, data.role);
         if (data.role === 'admin') {
-          navigate('/admin');
+          navigate('/test-programmer/admin');
         } else {
-          navigate('/dashboard');
+          navigate('/test-programmer/dashboard');
         }
       } else {
         setError('Login gagal');

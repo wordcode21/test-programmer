@@ -40,12 +40,12 @@ return (
     <div>
       <div className="navbar">
         <h2 onClick={()=>{
-            navigate("/dashboard")
+            navigate("/test-programmer/dashboard")
         }}>Stock Gudang</h2>
         <button
           onClick={() => {
             clearAuth();
-            navigate('/login');
+            navigate('/test-programmer/login');
           }}
         >
           Logout
@@ -59,7 +59,7 @@ return (
             <p><strong>Stok:</strong> {barang.stock}</p>
             <p><strong>Harga:</strong> Rp {Number(barang.harga).toLocaleString()}</p>
             <button className="detail-back-btn" onClick={()=>{
-                navigate("/dashboard");
+                navigate("/test-programmer/dashboard");
             }}>Kembali ke dashboard</button>
             </div>
         </div>

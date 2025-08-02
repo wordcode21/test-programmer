@@ -90,7 +90,7 @@ return (
             <p><strong>Stok:</strong> {barang.stock}</p>
             <p><strong>Harga:</strong> Rp {Number(barang.harga).toLocaleString()}</p>
             <button className="update-btn" onClick={()=>{
-                navigate(`/update-barang/${barang.kode_barang}`);
+                navigate(`/test-programmer/update-barang/${barang.kode_barang}`);
             }}>Edit Item</button>
             <button className="delete-btn" onClick={handleDelete}>Delete Item</button>
             <button className="detail-back-btn" onClick={()=>{
